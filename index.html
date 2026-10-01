@@ -109,6 +109,39 @@
       user-select: none;
     }
 
+    .talk-feature {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: clamp(18px, 3.5vw, 42px);
+      padding: clamp(25px, 4vw, 36px);
+      margin-bottom: 56px;
+      border: 1px solid #cddbd6;
+      border-radius: 4px;
+      background: #edf2ee;
+    }
+    .talk-feature[hidden] { display: none; }
+    .talk-date {
+      display: grid;
+      justify-items: center;
+      min-width: 64px;
+      padding-right: clamp(16px, 3vw, 38px);
+      border-right: 1px solid #cddbd6;
+      color: var(--accent-dark);
+      line-height: 1.15;
+    }
+    .talk-date strong { font-family: Georgia, serif; font-size: 2.35rem; font-weight: 400; }
+    .talk-date span { font-size: .71rem; font-weight: 700; letter-spacing: .12em; }
+    .talk-feature .section-label { margin-bottom: 9px; }
+    .talk-feature h2 {
+      margin: 0 0 4px;
+      font-size: clamp(1.15rem, 2.3vw, 1.55rem);
+      font-weight: 400;
+      line-height: 1.35;
+    }
+    .talk-feature p:last-child { margin: 0; color: var(--muted); font-size: .84rem; }
+    .talk-feature a { font-size: .88rem; font-weight: 700; white-space: nowrap; }
+
     .content-grid {
       display: grid;
       grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr);
@@ -191,6 +224,8 @@
       .hero-mark { display: none; }
       .content-grid { grid-template-columns: 1fr; gap: 70px; padding: 42px 0 85px; }
       .sidebar { grid-template-columns: 1fr 1fr; gap: 22px; }
+      .talk-feature { grid-template-columns: auto 1fr; margin-bottom: 45px; }
+      .talk-feature a { grid-column: 2; }
     }
 
     @media (max-width: 450px) {
@@ -210,6 +245,7 @@
       <nav class="nav" aria-label="Main navigation">
         <a href="#research">Research</a>
         <a href="#papers">Papers</a>
+        <a href="talks.html">Talks</a>
         <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
       </nav>
     </div>
@@ -223,6 +259,16 @@
         <p class="hero-description">Welcome to my personal webpage. My research interests include homogeneous dynamics, Lie groups, and number theory.</p>
       </div>
       <div class="hero-mark" aria-hidden="true">M</div>
+    </section>
+
+    <section class="talk-feature" id="next-talk" aria-labelledby="talk-feature-title" hidden>
+      <div class="talk-date"><span id="next-talk-month"></span><strong id="next-talk-day"></strong></div>
+      <div>
+        <p class="section-label">Upcoming talk · Online seminar</p>
+        <h2 id="talk-feature-title"></h2>
+        <p id="next-talk-info"></p>
+      </div>
+      <a href="talks.html">Talk details →</a>
     </section>
 
     <div class="content-grid">
@@ -263,5 +309,6 @@
   </main>
 
   <footer><div class="container">© 2026 Minchang Kim</div></footer>
+  <script src="talks.js" defer></script>
 </body>
 </html>
