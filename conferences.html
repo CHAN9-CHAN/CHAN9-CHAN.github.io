@@ -136,19 +136,37 @@
     }
     .map-shell {
   position: relative;
-  min-height: 390px;
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 1220 / 804;
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at 28% 16%, #ffffff 0, transparent 42%),
-    linear-gradient(145deg, #f6faf7, #e6efeb);
+    radial-gradient(
+      circle at 45% 38%,
+      rgba(255, 255, 255, .95),
+      rgba(237, 244, 241, .84) 60%,
+      #e2ece7 100%
+    );
 }
 
-.world-map {
+.world-map-image {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 390px;
+  object-fit: fill;
+  opacity: .88;
+  mix-blend-mode: multiply;
+  filter:
+    hue-rotate(322deg)
+    saturate(.7)
+    contrast(.95);
+  clip-path: inset(2px 0 0 0);
+  user-select: none;
+  pointer-events: none;
 }
 
 .map-shell::after {
@@ -157,14 +175,9 @@
   inset: 0;
   content: "";
   pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(247, 246, 242, .2),
-      transparent 18%,
-      transparent 82%,
-      rgba(247, 246, 242, .2)
-    );
+  box-shadow:
+    inset 0 0 42px rgba(247, 246, 242, .72),
+    inset 0 0 1px rgba(39, 107, 104, .2);
 }
     .map-markers { position: absolute; inset: 0; z-index: 2; }
     .map-marker {
@@ -338,7 +351,7 @@
       .page-hero { padding-top: 70px; }
       .section-heading, .archive-head { align-items: flex-start; flex-direction: column; }
       .filters { justify-content: flex-start; }
-      .map-shell, .world-map { min-height: 300px; }
+      .map-shell { min-height: 0; }
       .map-detail { min-height: 255px; }
       .marker-name { display: none; }
       .year-group { grid-template-columns: 1fr; gap: 14px; }
@@ -387,241 +400,12 @@
 
       <div class="map-layout">
         <div class="map-shell" role="img" aria-label="World map marking countries where Minchang Kim attended academic events">
-          <svg
-  class="world-map"
-  viewBox="0 0 1000 500"
-  preserveAspectRatio="none"
-  aria-hidden="true"
->
-  <defs>
-    <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f4f8f5"/>
-      <stop offset=".55" stop-color="#e9f1ed"/>
-      <stop offset="1" stop-color="#dde9e4"/>
-    </linearGradient>
-
-    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#aecbc0"/>
-      <stop offset="1" stop-color="#8fb6aa"/>
-    </linearGradient>
-
-    <radialGradient id="glow">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".82"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
-    </radialGradient>
-
-    <pattern
-      id="dots"
-      width="18"
-      height="18"
-      patternUnits="userSpaceOnUse"
-    >
-      <circle
-        cx="2"
-        cy="2"
-        r="1"
-        fill="#276b68"
-        opacity=".12"
-      />
-    </pattern>
-
-    <filter
-      id="shadow"
-      x="-20%"
-      y="-20%"
-      width="140%"
-      height="140%"
-    >
-      <feDropShadow
-        dx="0"
-        dy="6"
-        stdDeviation="8"
-        flood-color="#194c4b"
-        flood-opacity=".13"
-      />
-    </filter>
-
-    <clipPath id="world-clip">
-      <ellipse cx="500" cy="250" rx="465" ry="215"/>
-    </clipPath>
-  </defs>
-
-  <rect
-    width="1000"
-    height="500"
-    fill="#fbfcfa"
-  />
-
-  <ellipse
-    cx="500"
-    cy="250"
-    rx="465"
-    ry="215"
-    fill="url(#ocean)"
-  />
-
-  <g clip-path="url(#world-clip)">
-    <rect
-      x="35"
-      y="35"
-      width="930"
-      height="430"
-      fill="url(#dots)"
-    />
-
-    <ellipse
-      cx="285"
-      cy="125"
-      rx="360"
-      ry="185"
-      fill="url(#glow)"
-      opacity=".55"
-    />
-
-    <!-- Latitude and longitude lines -->
-    <g
-      fill="none"
-      stroke="#7da99b"
-      stroke-width="1"
-      opacity=".21"
-      stroke-dasharray="3 10"
-    >
-      <path d="M22 142 Q500 84 978 142"/>
-      <path d="M12 205 Q500 172 988 205"/>
-      <path d="M10 270 Q500 286 990 270"/>
-      <path d="M22 345 Q500 405 978 345"/>
-
-      <path d="M242 18 Q168 250 242 482"/>
-      <path d="M380 10 Q345 250 380 490"/>
-      <path d="M620 10 Q655 250 620 490"/>
-      <path d="M758 18 Q832 250 758 482"/>
-    </g>
-
-    <!-- Continents -->
-    <g
-      fill="url(#land)"
-      stroke="#6f9f90"
-      stroke-width="1.5"
-      stroke-linejoin="round"
-      filter="url(#shadow)"
-    >
-      <!-- North America -->
-      <path d="
-        M64 142
-        C86 101 126 79 168 78
-        C199 57 247 62 284 87
-        C313 106 320 134 298 151
-        C274 168 250 165 232 188
-        C214 210 185 213 158 198
-        C135 187 119 171 91 169
-        C71 168 54 157 64 142Z
-      "/>
-
-      <!-- South America -->
-      <path d="
-        M205 211
-        C230 207 260 222 276 248
-        C293 277 289 306 276 335
-        C262 367 240 405 219 433
-        C207 413 207 388 196 365
-        C181 333 166 304 168 272
-        C170 244 184 220 205 211Z
-      "/>
-
-      <!-- Greenland -->
-      <path d="
-        M220 70
-        C242 48 279 39 312 50
-        C333 57 345 73 336 89
-        C325 108 294 111 268 103
-        C244 96 226 86 220 70Z
-      "/>
-
-      <!-- Europe and Asia -->
-      <path d="
-        M407 135
-        C445 98 491 86 535 94
-        C568 72 613 69 650 85
-        C694 73 754 78 794 99
-        C829 95 871 112 904 138
-        C921 151 918 171 899 182
-        C876 195 849 184 830 198
-        C810 212 786 209 766 195
-        C739 176 715 193 691 198
-        C664 203 643 182 620 180
-        C593 177 574 196 546 190
-        C524 186 510 166 486 168
-        C458 171 434 165 407 151
-        C399 147 399 142 407 135Z
-      "/>
-
-      <!-- Africa -->
-      <path d="
-        M470 183
-        C497 170 531 174 555 194
-        C582 217 588 250 579 282
-        C570 315 548 350 527 380
-        C506 368 496 344 486 319
-        C474 288 453 264 452 232
-        C451 210 457 192 470 183Z
-      "/>
-
-      <!-- Australia -->
-      <path d="
-        M777 308
-        C807 286 851 280 886 293
-        C917 304 936 329 928 352
-        C919 379 880 392 846 383
-        C813 374 788 357 770 336
-        C762 326 765 317 777 308Z
-      "/>
-
-      <!-- New Zealand -->
-      <path d="
-        M928 391
-        C941 387 954 396 956 409
-        C957 421 945 430 933 425
-        C922 421 919 398 928 391Z
-      "/>
-    </g>
-
-    <!-- Decorative contour lines -->
-    <g
-      fill="none"
-      stroke="#d9e8e2"
-      stroke-width="2"
-      opacity=".68"
-    >
-      <path d="M96 130 C145 111 213 109 275 130"/>
-      <path d="M184 269 C213 278 245 300 268 327"/>
-      <path d="M443 133 C548 113 672 116 780 139"/>
-      <path d="M484 218 C519 225 551 248 572 277"/>
-      <path d="M797 326 C832 312 875 318 908 341"/>
-    </g>
-  </g>
-
-  <ellipse
-    cx="500"
-    cy="250"
-    rx="465"
-    ry="215"
-    fill="none"
-    stroke="#276b68"
-    stroke-width="1.5"
-    opacity=".28"
-  />
-
-  <ellipse
-    cx="500"
-    cy="250"
-    rx="454"
-    ry="204"
-    fill="none"
-    stroke="#ffffff"
-    stroke-width="1"
-    opacity=".65"
-  />
-</svg>
+          <img
+            class="world-map-image"
+            src="images/world-map.png"
+            alt=""
+            aria-hidden="true"
+          >
           <div class="map-markers" id="map-markers" aria-label="Country markers"></div>
         </div>
 
