@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Conference attendance and academic travel of Minchang Kim.">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="Conference attendance and academic travel of Minchang Kim."
+  >
+
   <meta name="theme-color" content="#f7f6f2">
+
   <title>Conferences | Minchang Kim</title>
+
   <style>
     :root {
       color-scheme: light;
+
       --paper: #f7f6f2;
       --surface: #ffffff;
       --ink: #202b33;
@@ -16,28 +28,61 @@
       --rule: #dedfd8;
       --accent: #276b68;
       --accent-dark: #194c4b;
-      --map-land: #dbe4df;
-      --map-line: #d7d8d2;
       --soft-accent: #edf2ee;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
-    button, a { font: inherit; }
-    a { color: var(--accent-dark); }
-    a:hover { color: var(--accent); }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-    .container { width: min(100% - 48px, 1120px); margin-inline: auto; }
 
-    .site-header { border-bottom: 1px solid var(--rule); }
+    button,
+    a {
+      font: inherit;
+    }
+
+    a {
+      color: var(--accent-dark);
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(100% - 48px, 1120px);
+      margin-inline: auto;
+    }
+
+    /* Header */
+
+    .site-header {
+      border-bottom: 1px solid var(--rule);
+    }
+
     .header-inner {
       min-height: 86px;
       display: flex;
@@ -45,6 +90,7 @@
       justify-content: space-between;
       gap: 24px;
     }
+
     .wordmark {
       color: var(--ink);
       font-family: Georgia, "Times New Roman", serif;
@@ -54,28 +100,58 @@
       text-decoration: none;
       white-space: nowrap;
     }
-    .nav { display: flex; gap: clamp(14px, 2.6vw, 31px); flex-wrap: wrap; }
+
+    .nav {
+      display: flex;
+      gap: clamp(14px, 2.6vw, 31px);
+      flex-wrap: wrap;
+    }
+
     .nav a {
       color: var(--muted);
       font-size: .87rem;
       font-weight: 600;
       text-decoration: none;
     }
-    .nav a:hover, .nav a[aria-current="page"] { color: var(--accent-dark); }
 
-    .eyebrow, .section-label, .event-status {
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      color: var(--accent-dark);
+    }
+
+    /* Shared typography */
+
+    .eyebrow,
+    .section-label,
+    .event-status {
       color: var(--accent);
       font-size: .73rem;
       font-weight: 750;
       letter-spacing: .14em;
       text-transform: uppercase;
     }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    /* Page hero */
+
     .page-hero {
-      padding: clamp(70px, 10vw, 118px) 0 clamp(54px, 8vw, 88px);
+      padding:
+        clamp(70px, 10vw, 118px)
+        0
+        clamp(54px, 8vw, 88px);
+
       border-bottom: 1px solid var(--rule);
     }
-    .eyebrow { margin: 0 0 19px; }
-    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+
+    .eyebrow {
+      margin: 0 0 19px;
+    }
+
     h1 {
       max-width: 820px;
       margin: 0 0 24px;
@@ -84,12 +160,14 @@
       letter-spacing: -.06em;
       line-height: .98;
     }
+
     .hero-description {
       max-width: 680px;
       margin: 0;
       color: var(--muted);
       font-size: clamp(1.04rem, 2vw, 1.24rem);
     }
+
     .summary {
       display: flex;
       gap: clamp(26px, 5vw, 58px);
@@ -98,6 +176,7 @@
       padding: 0;
       list-style: none;
     }
+
     .summary strong {
       display: block;
       color: var(--ink);
@@ -106,9 +185,20 @@
       font-weight: 400;
       line-height: 1.1;
     }
-    .summary span { color: var(--muted); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; }
 
-    .map-section { padding: clamp(62px, 8vw, 96px) 0; }
+    .summary span {
+      color: var(--muted);
+      font-size: .76rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    /* Map heading */
+
+    .map-section {
+      padding: clamp(62px, 8vw, 96px) 0;
+    }
+
     .section-heading {
       display: flex;
       align-items: end;
@@ -116,7 +206,11 @@
       gap: 30px;
       margin-bottom: 28px;
     }
-    .section-label { margin: 0 0 10px; }
+
+    .section-label {
+      margin: 0 0 10px;
+    }
+
     .section-heading h2 {
       margin: 0;
       font-size: clamp(2rem, 4vw, 3rem);
@@ -124,95 +218,166 @@
       letter-spacing: -.04em;
       line-height: 1.1;
     }
-    .section-note { max-width: 400px; margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .section-note {
+      max-width: 400px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* Map layout */
+
     .map-layout {
       display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(230px, .8fr);
+      grid-template-columns:
+        minmax(0, 2.2fr)
+        minmax(230px, .8fr);
+
       background: var(--surface);
       border: 1px solid var(--rule);
       border-radius: 5px;
       overflow: hidden;
-      box-shadow: 0 15px 38px rgba(32, 43, 51, .035);
+
+      box-shadow:
+        0 15px 38px
+        rgba(32, 43, 51, .035);
     }
+
     .map-shell {
-  position: relative;
-  width: 100%;
-  min-height: 0;
-  aspect-ratio: 1545 / 1018;
-  overflow: hidden;
-  isolation: isolate;
-  background: #f7f6f2;
-}
+      position: relative;
+      width: 100%;
+      min-width: 0;
+      min-height: 390px;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--paper);
+    }
 
-.world-map-image {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  opacity: 1;
-  filter: none;
-  mix-blend-mode: normal;
-  user-select: none;
-  pointer-events: none;
-}
+    .world-map-image {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
 
-.map-markers {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-}
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      object-fit: fill;
+      object-position: center;
+
+      opacity: 1;
+      filter: none;
+      mix-blend-mode: normal;
+
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .world-map-image[hidden] {
+      display: none;
+    }
+
+    .map-image-error {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+
+      display: grid;
+      place-items: center;
+      padding: 30px;
+
+      color: var(--muted);
+      background: var(--paper);
+      font-size: .88rem;
+      text-align: center;
+    }
+
+    .map-image-error[hidden] {
+      display: none;
+    }
+
+    .map-markers {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+    }
+
     .map-marker {
       position: absolute;
+
       display: flex;
       align-items: center;
       gap: 7px;
+
       padding: 0;
       border: 0;
       background: transparent;
       color: var(--accent-dark);
+
       cursor: pointer;
       transform: translate(-50%, -50%);
       white-space: nowrap;
     }
+
     .marker-core {
       display: grid;
       place-items: center;
+
       width: 34px;
       height: 34px;
+
       border: 5px solid rgba(255, 255, 255, .86);
       border-radius: 50%;
+
       background: var(--accent);
-      color: #fff;
-      box-shadow: 0 2px 0 rgba(25, 76, 75, .15), 0 0 0 1px rgba(25, 76, 75, .22);
+      color: #ffffff;
+
+      box-shadow:
+        0 2px 0 rgba(25, 76, 75, .15),
+        0 0 0 1px rgba(25, 76, 75, .22);
+
       font-size: .68rem;
       font-weight: 800;
-      transition: transform .18s ease, background .18s ease;
+
+      transition:
+        transform .18s ease,
+        background .18s ease;
     }
+
     .marker-name {
       padding: 3px 7px;
+
       border: 1px solid rgba(39, 107, 104, .18);
       border-radius: 3px;
+
       background: rgba(255, 255, 255, .9);
+
       font-size: .67rem;
       font-weight: 750;
       letter-spacing: .025em;
     }
-    .map-marker:hover .marker-core, .map-marker[aria-pressed="true"] .marker-core {
+
+    .map-marker:hover .marker-core,
+    .map-marker[aria-pressed="true"] .marker-core {
       background: var(--accent-dark);
       transform: scale(1.12);
     }
+
+    /* Map information panel */
+
     .map-detail {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
       min-height: 390px;
       padding: clamp(28px, 4vw, 44px);
+
       border-left: 1px solid var(--rule);
       background: var(--soft-accent);
     }
+
     .map-detail h3 {
       margin: 12px 0 14px;
       font-size: clamp(1.75rem, 3vw, 2.35rem);
@@ -220,41 +385,69 @@
       letter-spacing: -.035em;
       line-height: 1.08;
     }
-    .map-detail p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .map-detail p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
     .country-count {
       display: inline-block;
       margin-top: 19px;
+
       color: var(--accent-dark);
       font-family: Georgia, "Times New Roman", serif;
       font-size: 2.45rem;
       line-height: 1;
     }
-    .country-count-label { display: block; margin-top: 5px; color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; }
+
+    .country-count-label {
+      display: block;
+      margin-top: 5px;
+
+      color: var(--muted);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
     .clear-filter {
       align-self: flex-start;
+
       margin-top: 28px;
       padding: 0 0 6px;
+
       border: 0;
       border-bottom: 1px solid var(--accent);
+
       background: transparent;
       color: var(--accent-dark);
+
       font-size: .82rem;
       font-weight: 750;
+
       cursor: pointer;
     }
+
+    /* Archive */
 
     .archive {
       padding: 0 0 110px;
     }
+
     .archive-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
       gap: 30px;
+
       padding: 38px 0 25px;
+
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
     }
+
     .archive-head h2 {
       margin: 0;
       font-size: clamp(2rem, 4vw, 3rem);
@@ -262,53 +455,110 @@
       letter-spacing: -.04em;
       line-height: 1.1;
     }
-    .filters { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+
+    .filters {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .filter-button {
       padding: 7px 12px;
+
       border: 1px solid var(--rule);
       border-radius: 999px;
+
       background: var(--surface);
       color: var(--muted);
+
       font-size: .76rem;
       font-weight: 700;
+
       cursor: pointer;
     }
-    .filter-button:hover, .filter-button[aria-pressed="true"] {
+
+    .filter-button:hover,
+    .filter-button[aria-pressed="true"] {
       border-color: var(--accent);
       background: var(--accent);
-      color: #fff;
+      color: #ffffff;
     }
-    .year-group { display: grid; grid-template-columns: 100px 1fr; gap: 25px; padding-top: 38px; }
+
+    .year-group {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 25px;
+      padding-top: 38px;
+    }
+
     .year-heading {
       position: sticky;
       top: 20px;
       align-self: start;
+
       margin: 0;
+
       color: var(--accent-dark);
       font-size: 1.06rem;
       font-weight: 700;
     }
-    .event-list { display: grid; gap: 12px; }
+
+    .event-list {
+      display: grid;
+      gap: 12px;
+    }
+
     .event-card {
       display: grid;
-      grid-template-columns: minmax(125px, .42fr) minmax(0, 1.58fr) auto;
+
+      grid-template-columns:
+        minmax(125px, .42fr)
+        minmax(0, 1.58fr)
+        auto;
+
       align-items: center;
       gap: clamp(18px, 3vw, 36px);
+
       padding: 25px 27px;
+
       border: 1px solid var(--rule);
       border-radius: 4px;
+
       background: var(--surface);
     }
-    .event-card.is-upcoming { border-color: #b9d0c7; background: #fbfdfb; }
-    .event-date { color: var(--muted); font-size: .8rem; font-weight: 650; }
-    .event-status { display: block; margin-bottom: 5px; font-size: .61rem; }
+
+    .event-card.is-upcoming {
+      border-color: #b9d0c7;
+      background: #fbfdfb;
+    }
+
+    .event-date {
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 650;
+    }
+
+    .event-status {
+      display: block;
+      margin-bottom: 5px;
+      font-size: .61rem;
+    }
+
     .event-card h3 {
       margin: 0 0 5px;
+
       font-size: clamp(1.05rem, 2vw, 1.3rem);
       font-weight: 400;
       line-height: 1.35;
     }
-    .event-meta { margin: 0; color: var(--muted); font-size: .84rem; }
+
+    .event-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
     .event-link {
       color: var(--accent-dark);
       font-size: .8rem;
@@ -316,49 +566,157 @@
       text-decoration: none;
       white-space: nowrap;
     }
-    .event-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-    .empty-state { padding: 44px 0; color: var(--muted); }
 
-    footer { border-top: 1px solid var(--rule); padding: 22px 0 30px; color: var(--muted); font-size: .82rem; }
+    .event-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .empty-state {
+      padding: 44px 0;
+      color: var(--muted);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 22px 0 30px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    /* Responsive */
 
     @media (max-width: 820px) {
-      .map-layout { grid-template-columns: 1fr; }
-      .map-detail { min-height: auto; border-top: 1px solid var(--rule); border-left: 0; }
-      .event-card { grid-template-columns: 120px 1fr; }
-      .event-link { grid-column: 2; }
+      .map-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .map-shell {
+        min-height: 0;
+        aspect-ratio: 1545 / 1018;
+      }
+
+      .map-detail {
+        min-height: auto;
+        border-top: 1px solid var(--rule);
+        border-left: 0;
+      }
+
+      .event-card {
+        grid-template-columns: 120px 1fr;
+      }
+
+      .event-link {
+        grid-column: 2;
+      }
     }
+
     @media (max-width: 680px) {
-      .container { width: min(100% - 34px, 1120px); }
-      .header-inner { align-items: flex-start; flex-direction: column; gap: 9px; padding: 18px 0; }
-      .nav { gap: 13px; }
-      .nav a { font-size: .76rem; }
-      .page-hero { padding-top: 70px; }
-      .section-heading, .archive-head { align-items: flex-start; flex-direction: column; }
-      .filters { justify-content: flex-start; }
-      .map-shell { min-height: 0; }
-      .map-detail { min-height: 255px; }
-      .marker-name { display: none; }
-      .year-group { grid-template-columns: 1fr; gap: 14px; }
-      .year-heading { position: static; }
-      .event-card { grid-template-columns: 1fr; gap: 10px; padding: 22px; }
-      .event-link { grid-column: auto; margin-top: 3px; }
+      .container {
+        width: min(100% - 34px, 1120px);
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 9px;
+        padding: 18px 0;
+      }
+
+      .nav {
+        gap: 13px;
+      }
+
+      .nav a {
+        font-size: .76rem;
+      }
+
+      .page-hero {
+        padding-top: 70px;
+      }
+
+      .section-heading,
+      .archive-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .filters {
+        justify-content: flex-start;
+      }
+
+      .map-detail {
+        min-height: 255px;
+      }
+
+      .marker-name {
+        display: none;
+      }
+
+      .year-group {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .year-heading {
+        position: static;
+      }
+
+      .event-card {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 22px;
+      }
+
+      .event-link {
+        grid-column: auto;
+        margin-top: 3px;
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .marker-core { transition: none; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      .marker-core {
+        transition: none;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="wordmark" href="index.html">Minchang Kim</a>
+      <a
+        class="wordmark"
+        href="index.html"
+      >
+        Minchang Kim
+      </a>
+
       <nav class="nav" aria-label="Main navigation">
         <a href="index.html#research">Research</a>
         <a href="index.html#papers">Papers</a>
         <a href="talks.html">Talks</a>
-        <a href="conferences.html" aria-current="page">Conferences</a>
-        <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
+
+        <a
+          href="conferences.html"
+          aria-current="page"
+        >
+          Conferences
+        </a>
+
+        <a
+          href="cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CV ↗
+        </a>
       </nav>
     </div>
   </header>
@@ -366,59 +724,196 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Academic travel · Conference attendance</p>
-        <h1>Conferences across the map<span style="color: var(--accent)">.</span></h1>
-        <p class="hero-description">A geographic and chronological record of conferences, workshops, and research programs I have attended.</p>
-        <ul class="summary" id="summary" aria-label="Conference attendance summary"></ul>
+        <p class="eyebrow">
+          Academic travel · Conference attendance
+        </p>
+
+        <h1>
+          Conferences across the map<span
+            style="color: var(--accent)"
+          >.</span>
+        </h1>
+
+        <p class="hero-description">
+          A geographic and chronological record of conferences,
+          workshops, and research programs I have attended.
+        </p>
+
+        <ul
+          class="summary"
+          id="summary"
+          aria-label="Conference attendance summary"
+        ></ul>
       </div>
     </section>
 
-    <section class="map-section container" aria-labelledby="map-title">
+    <section
+      class="map-section container"
+      aria-labelledby="map-title"
+    >
       <div class="section-heading">
         <div>
           <p class="section-label">Places</p>
           <h2 id="map-title">Conference map</h2>
         </div>
-        <p class="section-note">Select a marker to see the meetings attended in that country. The number inside each marker is the attendance count.</p>
+
+        <p class="section-note">
+          Select a marker to see the meetings attended in that
+          country. The number inside each marker is the attendance
+          count.
+        </p>
       </div>
 
       <div class="map-layout">
-        <div class="map-shell" role="group" aria-label="Interactive conference map" >
+        <div
+          class="map-shell"
+          role="group"
+          aria-label="Interactive conference map"
+        >
+          <!--
+            The browser first looks for world-map.png next to
+            conferences.html. If it is absent, it then tries
+            images/world-map.png.
+          -->
           <img
             class="world-map-image"
-            src="images/world-map.png"
+            id="world-map-image"
+            src="./world-map.png"
             alt=""
             aria-hidden="true"
           >
-          <div class="map-markers" id="map-markers" aria-label="Country markers"></div>
+
+          <p
+            class="map-image-error"
+            id="map-image-error"
+            hidden
+          >
+            The map image could not be loaded. Make sure that
+            world-map.png is uploaded next to conferences.html.
+          </p>
+
+          <div
+            class="map-markers"
+            id="map-markers"
+            aria-label="Country markers"
+          ></div>
         </div>
 
-        <aside class="map-detail" aria-live="polite">
+        <aside
+          class="map-detail"
+          aria-live="polite"
+        >
           <div>
-            <p class="section-label">Selected destination</p>
-            <h3 id="country-name">All destinations</h3>
-            <p id="country-cities">Select a country marker to filter the attendance archive.</p>
-            <span class="country-count" id="country-count">0</span>
-            <span class="country-count-label" id="country-count-label">events in total</span>
+            <p class="section-label">
+              Selected destination
+            </p>
+
+            <h3 id="country-name">
+              All destinations
+            </h3>
+
+            <p id="country-cities">
+              Select a country marker to filter the attendance
+              archive.
+            </p>
+
+            <span
+              class="country-count"
+              id="country-count"
+            >
+              0
+            </span>
+
+            <span
+              class="country-count-label"
+              id="country-count-label"
+            >
+              events in total
+            </span>
           </div>
-          <button class="clear-filter" id="clear-country" type="button" hidden>Show all destinations</button>
+
+          <button
+            class="clear-filter"
+            id="clear-country"
+            type="button"
+            hidden
+          >
+            Show all destinations
+          </button>
         </aside>
       </div>
     </section>
 
-    <section class="archive container" aria-labelledby="archive-title">
+    <section
+      class="archive container"
+      aria-labelledby="archive-title"
+    >
       <div class="archive-head">
         <div>
           <p class="section-label">Chronology</p>
           <h2 id="archive-title">Attendance archive</h2>
         </div>
-        <div class="filters" id="year-filters" aria-label="Filter conferences by year"></div>
+
+        <div
+          class="filters"
+          id="year-filters"
+          aria-label="Filter conferences by year"
+        ></div>
       </div>
+
       <div id="conference-list"></div>
     </section>
   </main>
 
-  <footer><div class="container">© 2026 Minchang Kim</div></footer>
-  <script src="conferences.js" defer></script>
+  <footer>
+    <div class="container">
+      © 2026 Minchang Kim
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const image =
+        document.querySelector("#world-map-image");
+
+      const errorMessage =
+        document.querySelector("#map-image-error");
+
+      function showMissingImageMessage() {
+        image.hidden = true;
+        errorMessage.hidden = false;
+      }
+
+      function tryFallbackImage() {
+        if (image.dataset.fallbackAttempted === "true") {
+          showMissingImageMessage();
+          return;
+        }
+
+        image.dataset.fallbackAttempted = "true";
+        image.src = "images/world-map.png";
+      }
+
+      image.addEventListener("error", tryFallbackImage);
+
+      image.addEventListener("load", () => {
+        image.hidden = false;
+        errorMessage.hidden = true;
+      });
+
+      /*
+        The image may already have failed before this script runs.
+        This check handles that case.
+      */
+      if (
+        image.complete &&
+        image.naturalWidth === 0
+      ) {
+        tryFallbackImage();
+      }
+    })();
+  </script>
+
+  <script src="./conferences.js" defer></script>
 </body>
 </html>
