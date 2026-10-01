@@ -11,11 +11,46 @@
 */
 
 const COUNTRIES = {
-  KR: { name: "South Korea", longitude: 127.8, latitude: 36.5 },
-  IT: { name: "Italy", longitude: 12.6, latitude: 42.8, dx: 1.1, dy: 2.8 },
-  FR: { name: "France", longitude: 2.2, latitude: 46.2, dx: -1.2 },
-  PL: { name: "Poland", longitude: 19.1, latitude: 51.9, dx: 1.4, dy: -1.5 },
-  JP: { name: "Japan", longitude: 140.1, latitude: 36.1, dx: 1.1, dy: 1.2 }
+  const COUNTRIES = {
+  KR: {
+    name: "South Korea",
+    longitude: 127.8,
+    latitude: 36.5,
+    dx: -0.8,
+    dy: 2.4
+  },
+
+  JP: {
+    name: "Japan",
+    longitude: 138.0,
+    latitude: 36.2,
+    dx: 1.0,
+    dy: 2.6
+  },
+
+  IT: {
+    name: "Italy",
+    longitude: 12.6,
+    latitude: 42.8,
+    dx: 3.0,
+    dy: 2.0
+  },
+
+  FR: {
+    name: "France",
+    longitude: 2.2,
+    latitude: 46.2,
+    dx: 4.0,
+    dy: 2.0
+  },
+
+  PL: {
+    name: "Poland",
+    longitude: 19.1,
+    latitude: 51.9,
+    dx: 2.5,
+    dy: 2.0
+  }
 };
 
 const CONFERENCES = [
@@ -308,15 +343,35 @@ function renderSummary() {
     .join("");
 }
 
+const MAP_WEST_LONGITUDE = -20;
+
 function markerPosition(country) {
+  /*
+    이 지도는 서경 20도 부근에서 잘리고,
+    경도 160도 부근이 중앙에 오는 태평양 중심 지도이다.
+  */
+
+  const shiftedLongitude =
+    (
+      country.longitude -
+      MAP_WEST_LONGITUDE +
+      360
+    ) % 360;
+
+  const normalizedLongitude =
+    shiftedLongitude / 360;
+
+  const normalizedLatitude =
+    (90 - country.latitude) / 180;
+
   const left =
-    3.5 +
-    ((country.longitude + 180) / 360) * 93 +
+    4.5 +
+    normalizedLongitude * 91 +
     (country.dx || 0);
 
   const top =
-    7 +
-    ((90 - country.latitude) / 180) * 86 +
+    6 +
+    normalizedLatitude * 88 +
     (country.dy || 0);
 
   return {
