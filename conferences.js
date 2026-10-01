@@ -310,11 +310,13 @@ function renderSummary() {
 
 function markerPosition(country) {
   const left =
-    ((country.longitude + 180) / 360) * 100 +
+    3.5 +
+    ((country.longitude + 180) / 360) * 93 +
     (country.dx || 0);
 
   const top =
-    ((90 - country.latitude) / 180) * 100 +
+    7 +
+    ((90 - country.latitude) / 180) * 86 +
     (country.dy || 0);
 
   return {
