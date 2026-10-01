@@ -71,8 +71,8 @@ const CONFERENCES = [
   },
   {
     title: "Numeration and Substitution 2025",
-    start: "2025-9-8",
-    end: "2025-9-12",
+    start: "2025-09-08",
+    end: "2025-09-12",
     venue: "Tsukuba University",
     city: "Tsukuba",
     country: "JP"
