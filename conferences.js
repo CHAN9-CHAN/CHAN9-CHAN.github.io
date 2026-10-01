@@ -70,6 +70,14 @@ const CONFERENCES = [
     country: "KR"
   },
   {
+    title: "Numeration and Substitution 2025",
+    start: "2025-9-8",
+    end: "2025-9-12",
+    venue: "Tsukuba University",
+    city: "Tsukuba",
+    country: "JP"
+  },
+  {
     title: "Beyond Uniform Hyperbolicity II",
     start: "2025-06-09",
     end: "2025-06-13",
