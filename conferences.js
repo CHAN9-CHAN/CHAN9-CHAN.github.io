@@ -11,7 +11,6 @@
 */
 
 const COUNTRIES = {
-  const COUNTRIES = {
   KR: {
     name: "South Korea",
     longitude: 127.8,
