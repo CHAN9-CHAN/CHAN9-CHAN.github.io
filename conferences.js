@@ -14,7 +14,8 @@ const COUNTRIES = {
   KR: { name: "South Korea", longitude: 127.8, latitude: 36.5 },
   IT: { name: "Italy", longitude: 12.6, latitude: 42.8, dx: 1.1, dy: 2.8 },
   FR: { name: "France", longitude: 2.2, latitude: 46.2, dx: -1.2 },
-  PL: { name: "Poland", longitude: 19.1, latitude: 51.9, dx: 1.4, dy: -1.5 }
+  PL: { name: "Poland", longitude: 19.1, latitude: 51.9, dx: 1.4, dy: -1.5 },
+  JP: { name: "Japan", longitude: 140.1, latitude: 36.1, dx: 1.1, dy: 1.2 }
 };
 
 const CONFERENCES = [
