@@ -1,42 +1,267 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Minchang Kim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Minchang Kim — research in homogeneous dynamics, Lie groups, and number theory.">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>Minchang Kim | Mathematics</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f6f2;
+      --surface: #ffffff;
+      --ink: #202b33;
+      --muted: #63717a;
+      --rule: #dedfd8;
+      --accent: #276b68;
+      --accent-dark: #194c4b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-dark); }
+    a:hover { color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+    .container { width: min(100% - 48px, 1020px); margin-inline: auto; }
+
+    .site-header { border-bottom: 1px solid var(--rule); }
+    .header-inner {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .wordmark {
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.22rem;
+      font-weight: 700;
+      letter-spacing: -.035em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav { display: flex; gap: clamp(15px, 3vw, 34px); flex-wrap: wrap; }
+    .nav a {
+      color: var(--muted);
+      font-size: .87rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .nav a:hover { color: var(--accent-dark); }
+
+    .hero {
+      padding: clamp(80px, 12vw, 152px) 0 clamp(82px, 11vw, 132px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 36px;
+      align-items: end;
+    }
+    .eyebrow, .section-label, .paper-type {
+      color: var(--accent);
+      font-size: .73rem;
+      font-weight: 750;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow { margin: 0 0 22px; }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+    h1 {
+      font-size: clamp(2.45rem, 8vw, 6.8rem);
+      line-height: .98;
+      letter-spacing: -.065em;
+      font-weight: 400;
+      margin: 0 0 30px;
+      white-space: nowrap;
+    }
+    .hero-description {
+      max-width: 570px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2.2vw, 1.3rem);
+      line-height: 1.6;
+    }
+    .hero-mark {
+      width: clamp(86px, 13vw, 150px);
+      aspect-ratio: 1;
+      border: 1px solid #cddbd6;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4.8vw, 4rem);
+      font-style: italic;
+      transform: rotate(-12deg);
+      user-select: none;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr);
+      gap: clamp(40px, 7vw, 100px);
+      border-top: 1px solid var(--rule);
+      padding: 50px 0 110px;
+    }
+    .sidebar { display: grid; align-content: start; gap: 55px; }
+    .section-label { margin: 0 0 20px; }
+    .plain-list { list-style: none; margin: 0; padding: 0; }
+    .plain-list li + li { margin-top: 8px; }
+    .cv-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--accent);
+      font-size: .94rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .cv-link svg, .paper-link svg { width: 16px; height: 16px; flex: none; }
+
+    .research-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 23px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .research-heading h2 {
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1.15;
+      margin: 0;
+    }
+    .research-heading span { color: var(--muted); font-size: .8rem; }
+    .paper {
+      margin-top: 27px;
+      padding: clamp(26px, 4vw, 40px);
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      box-shadow: 0 12px 32px rgba(32, 43, 51, .035);
+    }
+    .paper-type { margin: 0 0 23px; }
+    .paper h3 {
+      margin: 0 0 16px;
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1.28;
+    }
+    .paper-meta { margin: 0 0 28px; color: var(--muted); font-size: .93rem; }
+    .paper-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: .9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .paper-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 22px 0 30px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 36px, 1020px); }
+      .header-inner { min-height: 75px; }
+      .nav { gap: 14px; }
+      .nav a { font-size: .78rem; }
+      .hero { grid-template-columns: 1fr; padding: 88px 0 85px; }
+      .hero-mark { display: none; }
+      .content-grid { grid-template-columns: 1fr; gap: 70px; padding: 42px 0 85px; }
+      .sidebar { grid-template-columns: 1fr 1fr; gap: 22px; }
+    }
+
+    @media (max-width: 450px) {
+      .header-inner { align-items: flex-start; flex-direction: column; gap: 8px; padding: 18px 0; }
+      .sidebar { grid-template-columns: 1fr; gap: 37px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="#top" aria-label="Minchang Kim, back to top">Minchang Kim</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#research">Research</a>
+        <a href="#papers">Papers</a>
+        <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
+      </nav>
+    </div>
+  </header>
 
-  <h1>Minchang Kim</h1>
-  <p>Welcome to my personal webpage.</p>
-  
-  <hr>
+  <main id="top" class="container">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Mathematics · Research</p>
+        <h1 id="page-title">Minchang Kim<span style="color: var(--accent)">.</span></h1>
+        <p class="hero-description">Welcome to my personal webpage. My research interests include homogeneous dynamics, Lie groups, and number theory.</p>
+      </div>
+      <div class="hero-mark" aria-hidden="true">M</div>
+    </section>
 
-  <h2>Curriculum Vitae</h2>
-  <p>
-    <a href="cv.pdf" target="_blank" style="font-weight: bold;">📄 Download My CV (PDF)</a>
-  </p>
+    <div class="content-grid">
+      <aside class="sidebar" aria-label="About and CV">
+        <section id="research" aria-labelledby="research-title">
+          <h2 id="research-title" class="section-label">Research interests</h2>
+          <ul class="plain-list">
+            <li>Homogeneous Dynamics &amp; Lie Groups</li>
+            <li>Number Theory</li>
+          </ul>
+        </section>
 
-  <hr>
+        <section aria-labelledby="cv-title">
+          <h2 id="cv-title" class="section-label">Curriculum vitae</h2>
+          <a class="cv-link" href="cv.pdf" target="_blank" rel="noopener noreferrer">
+            Download CV (PDF)
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </section>
+      </aside>
 
-  <h2>Research Interests</h2>
-  <ul>
-    <li>Homogeneous Dynamics & Lie Groups</li>
-    <li>Number Theory</li>
-  </ul>
+      <section id="papers" aria-labelledby="papers-title">
+        <div class="research-heading">
+          <h2 id="papers-title">Publications &amp; Preprints</h2>
+          <span>01 / Preprint</span>
+        </div>
+        <article class="paper">
+          <p class="paper-type">Preprint · 2026</p>
+          <h3>Diophantine Approximation by Lagrangian Frames in Symplectic Lattices</h3>
+          <p class="paper-meta">Minchang Kim · arXiv:2606.05096</p>
+          <a class="paper-link" href="https://arxiv.org/abs/2606.05096" target="_blank" rel="noopener noreferrer">
+            Read on arXiv
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </article>
+      </section>
+    </div>
+  </main>
 
-  <hr>
-
-  <h2>Publications & Preprints</h2>
-  
-  <h3>Preprints</h3>
-  <ul>
-    <li>
-      <strong>M. Kim</strong>, 
-      "Khintchine's Theorem for Symmetric matrices via Flows on the Space of Symplectic Lattices", 
-      <em>arXiv preprint arXiv:2606.05096</em> (2026). 
-      [<a href="https://arxiv.org/abs/2606.05096" target="_blank">arXiv</a>]
-    </li>
-  </ul>
-
+  <footer><div class="container">© 2026 Minchang Kim</div></footer>
 </body>
 </html>
